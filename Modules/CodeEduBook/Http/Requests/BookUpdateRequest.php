@@ -1,9 +1,10 @@
 <?php
 
-namespace CodePub\Http\Requests;
+namespace CodeEduBook\Http\Requests;
 
 use Auth;
-use CodePub\Repositories\BookRepository;
+use CodeEduBook\Repositories\BookRepository;
+use CodeEduBook\Http\Requests\BookCreateRequest;
 
 class BookUpdateRequest extends BookCreateRequest
 {
@@ -30,6 +31,7 @@ class BookUpdateRequest extends BookCreateRequest
     public function authorize()
     {
         $id = (int) $this->route('book');
+
         if($id == 0)
         {
             return false;

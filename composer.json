@@ -29,8 +29,7 @@
     ],
     "autoload": {
         "classmap": [
-            "database",
-            "Modules/CodeEduBook/database"
+            "database"
         ],
         "psr-4": {
             "CodePub\\": "app/",

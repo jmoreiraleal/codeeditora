@@ -1,12 +1,13 @@
 <?php
 
-namespace CodePub\Repositories;
+namespace CodeEduBook\Repositories;
 
 use CodePub\Criteria\CriteriaTrashedTrait;
+use CodePub\Repositories\RepositoryRestoreTrait;
 use Prettus\Repository\Eloquent\BaseRepository;
 use Prettus\Repository\Criteria\RequestCriteria;
-use CodePub\Repositories\BookRepository;
-use CodePub\Models\Book;
+use CodeEduBook\Repositories\BookRepository;
+use CodeEduBook\Models\Book;
 use CodePub\Validators\BookValidator;
 
 /**

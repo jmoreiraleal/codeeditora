@@ -9,7 +9,7 @@
     ],
     "autoload": {
         "psr-4": {
-            "CodeEduBook\\": ""
+            "CodeEduBook\\": "Modules/CodeEduBook"
         }
     }
 }

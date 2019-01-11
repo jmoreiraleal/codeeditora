@@ -1,12 +1,13 @@
 <?php
 
-namespace CodePub\Models;
+namespace CodeEduBook\Models;
 
 use Bootstrapper\Interfaces\TableInterface;
 use Collective\Html\Eloquent\FormAccessible;
 use Illuminate\Database\DetectsLostConnections;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Foundation\Auth\User;
 
 
 /**

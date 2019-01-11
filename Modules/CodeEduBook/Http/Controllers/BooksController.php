@@ -1,18 +1,13 @@
 <?php
 
-namespace CodePub\Http\Controllers;
+namespace CodeEduBook\Http\Controllers;
 
-use CodePub\Criteria\FindByTitleCriteria;
-use CodePub\Models\Category;
-use CodePub\Repositories\CategoryRepository;
+
+use CodeEduBook\Http\Requests\BookCreateRequest;
+use CodeEduBook\Http\Requests\BookUpdateRequest;
+use CodeEduBook\Repositories\BookRepository;
+use CodeEduBook\Repositories\CategoryRepository;
 use Illuminate\Http\Request;
-
-use CodePub\Http\Requests;
-use Prettus\Validator\Contracts\ValidatorInterface;
-use Prettus\Validator\Exceptions\ValidatorException;
-use CodePub\Http\Requests\BookCreateRequest;
-use CodePub\Http\Requests\BookUpdateRequest;
-use CodePub\Repositories\BookRepository;
 use Session;
 use URL;
 
@@ -53,7 +48,7 @@ class BooksController extends Controller
     {
         $search = $request->get('search');
         $books = $this->repository->paginate(10);
-        return view('books.index',compact('books','search'));
+        return view('codeedubook::books.index',compact('books','search'));
     }
 
 
@@ -66,7 +61,7 @@ class BooksController extends Controller
     {
         $categories = $this->categoryRepository->lists('name','id');
 
-        return view('books.create',compact('categories'));
+        return view('codeedubook::books.create',compact('categories'));
     }
 
     /**
@@ -113,7 +108,7 @@ class BooksController extends Controller
             ]);
         }
 
-        return view('books.show', compact('book'));
+        return view('codeedubook::books.show', compact('book'));
     }
 
     /**
@@ -129,7 +124,7 @@ class BooksController extends Controller
         $this->categoryRepository->withTrashed();
         /** @var mutator para categorias exibe inativa na frente do nome $categories */
         $categories = $this->categoryRepository->listsWithMutators('name_trashed','id');
-        return view('books.edit', compact('book','categories'));
+        return view('codeedubook::books.edit', compact('book','categories'));
     }
 
     /**
@@ -144,7 +139,6 @@ class BooksController extends Controller
      */
     public function update(BookUpdateRequest $request, $id)
     {
-
         $data = $request->except(['author_id']);
         $this->repository->update($data,$id);
 

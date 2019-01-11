@@ -1,9 +1,10 @@
 <?php
 
-namespace CodePub\Http\Controllers;
+namespace CodeEdubook\Http\Controllers;
 
 use Illuminate\Http\Request;
-use CodePub\Repositories\BookRepository;
+use CodeEduBook\Repositories\BookRepository;
+use Illuminate\Routing\Controller;
 
 /**
  * Class BooksController.
@@ -36,7 +37,7 @@ class BooksTrashedController extends Controller
     {
         $search = $request->get('search');
         $books = $this->repository->onlyTrashed()->paginate(10);
-        return view('trashed.books.index',compact('books','search'));
+        return view('codeedubook::trashed.books.index',compact('books','search'));
     }
 
     /**
@@ -48,7 +49,7 @@ class BooksTrashedController extends Controller
         $this->repository->onlyTrashed();
         $book = $this->repository->find($id);
 
-        return view('trashed.books.show',compact('book'));
+        return view('codeedubook::trashed.books.show',compact('book'));
     }
 
     public function update(Request $request,$id)
