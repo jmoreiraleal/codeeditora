@@ -174,7 +174,7 @@ return [
           \Nwidart\Modules\LaravelModulesServiceProvider::class,
 
           \CodeEduBook\Providers\CodeEduBookServiceProvider::class,
-
+          \CodeEduUser\Providers\CodeEduUserServiceProvider::class,
         /*
          * Application Service Providers...
          */
